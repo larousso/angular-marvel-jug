@@ -1,11 +1,10 @@
-angular.module('marvelapp.marvel', ['marvellapp.marvel.service'])
+angular.module('marvelapp.marvel', [])
 .controller('MarvelCtrl', ['MarvelService', function(MarvelService){
 
     var marvel = this;
-    var currentPageNum = 0;
 
     this.rechercher = function(pageNum){
-         MarvelService.findSuperHeroes(this.name, currentPageNum)
+         MarvelService.findSuperHeroes(this.name, 1)
             .then(function(result){
                 marvel.searchResult = result;
             }, function(error){
@@ -13,13 +12,19 @@ angular.module('marvelapp.marvel', ['marvellapp.marvel.service'])
             });
     };
 
-    this.next = function(){
-        currentPageNum = currentPageNum + 1;
-        this.rechercher(currentPageNum);
+    this.displayPage = function(pageNum){
+        MarvelService.findSuperHeroes(this.name, pageNum)
+        .then(function(result){
+            marvel.searchResult.data = result.data;
+        }, function(error){
+            alert('Oups');
+        });
     };
 
     this.getThumbnail = function(character){
-        return MarvelService.getThumbnail(character);
+        return MarvelService.getThumbnail(character, MarvelService.sizes.small);
     };
+
+    this.rechercher();
 
 }]);

@@ -7,6 +7,10 @@ GET     /                           controllers.Application.index
 
 GET /marvel/*path                   controllers.Application.marvel(path:String)
 
+POST /chat                          controllers.Application.postMessage
+
+GET /chat/feeds                      controllers.Application.chatFeed
+
 POST /users                         controllers.Application.createUser
 
 POST /users/:id/favorites           controllers.Application.addFavorite(id:String)
