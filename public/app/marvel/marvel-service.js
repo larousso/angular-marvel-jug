@@ -1,4 +1,4 @@
-angular.module('marvelapp.marvel.service', [])
+angular.module('marvelapp.marvel')
 .factory('MarvelService', ['$http', '$q', function($http, $q) {
 
     var nbParPages = 15;

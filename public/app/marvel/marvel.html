@@ -28,19 +28,10 @@
                     on-select-page="marvel.displayPage(page)">
             </pagination>
 
+            <div class="list-group">
+               <marvel-hero ng-repeat="character in marvel.searchResult.data | filter:marvel.name" data="character" link="#/detail/{{character.id}}"></marvel-hero>
+            </div>
 
-            <table class="table">
-                <thead>
-                <td></td>
-                <td>Nom</td>
-                <td>Description</td>
-                </thead>
-                <tr ng-repeat="character in marvel.searchResult.data | filter:marvel.name">
-                    <td><a ng-href="#/detail/{{character.id}}"><img ng-src="{{marvel.getThumbnail(character)}}"></a></td>
-                    <td><a ng-href="#/detail/{{character.id}}">{{character.name}}</a></td>
-                    <td><a ng-href="#/detail/{{character.id}}">{{character.description}}</a></td>
-                </tr>
-            </table>
         </div>
     </div>
     <div class="col-md-2"></div>

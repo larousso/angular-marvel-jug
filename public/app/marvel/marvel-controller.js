@@ -1,4 +1,4 @@
-angular.module('marvelapp.marvel', [])
+angular.module('marvelapp.marvel')
 .controller('MarvelCtrl', ['MarvelService', function(MarvelService){
 
     var marvel = this;

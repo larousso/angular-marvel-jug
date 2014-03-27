@@ -1,4 +1,10 @@
-angular.module('marvelapp', ['marvelapp.menu', 'marvelapp.chat', 'marvelapp.marvel', 'marvelapp.marvel.service', 'marvelapp.marvel.detail', 'ui.bootstrap', 'ngRoute'])
+angular.module('marvelapp', [
+    'marvelapp.menu',
+    'marvelapp.chat',
+    'marvelapp.marvel',
+    'marvelapp.marvel.detail',
+    'ui.bootstrap',
+    'ngRoute'])
 .config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
