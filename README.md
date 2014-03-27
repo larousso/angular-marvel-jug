@@ -3,8 +3,11 @@ angular-marvel
 
 Projet de démo d'angular js avec les apis de marvel.
 
+
+Répository utilisé pendant le jug de niort [http://www.poitoucharentesjug.org/](http://www.poitoucharentesjug.org/).
+
 Démo visible ici :
-[http://angular-marvel.herokuapp.com/](http://angular-marvel.herokuapp.com/)
+[http://angular-marvel-jug.herokuapp.com/](http://angular-marvel-jug.herokuapp.com/)
 
 
 Ce projet est écrit avec les frameworks [play 2](http://www.playframework.com/), [angularjs](http://angularjs.org), [twitter bootstrap](http://getbootstrap.com/) et [angular ui bootstrap](http://angular-ui.github.io/bootstrap/).
