@@ -14,8 +14,10 @@
     <link href="/assets/libs/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+    @views.Helper.loader.css("marvelapp")("app/app.css")
+    <!--
     <link href="/assets/app/app.css" rel="stylesheet">
-
+    -->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -62,6 +64,6 @@
 <script src="/assets/libs/js/angular.min.js"></script>
 <script src="/assets/libs/js/angular-route.min.js"></script>
 <script src="/assets/libs/js/ui-bootstrap-tpls-0.10.0.min.js"></script>
-
+@views.Helper.loader.scripts("marvelapp")()
 </body>
 </html>
