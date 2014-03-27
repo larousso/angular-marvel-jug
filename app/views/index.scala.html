@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" ng-app="marvelapp">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +8,19 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Marvel Angular</title>
+    <title>Starter Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="/assets/libs/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/assets/app/app.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
@@ -28,42 +34,34 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Marvel angular</a>
+            <a class="navbar-brand" href="#">Project name</a>
         </div>
         <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav" ng-controller="MenuCtrl">
-                <li ng-class="{ active: isActive('/search')}"><a href="#/search">Recherche</a></li>
-                <li ng-class="{ active: isActive('/chat')}"><a href="#/chat">Chat</a></li>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </div>
-        <!--/.nav-collapse -->
+        </div><!--/.nav-collapse -->
     </div>
 </div>
 
-<!-- /.container -->
+<div class="container">
 
-<ng-view></ng-view>
+    <div class="starter-template">
+        <h1>Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+    </div>
+
+</div><!-- /.container -->
+
+
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<script src="/assets/libs/js/angular.min.js"></script>
+<script src="/assets/libs/js/angular-route.min.js"></script>
+<script src="/assets/libs/js/ui-bootstrap-tpls-0.10.0.min.js"></script>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-route.min.js"></script>
-<script src="/assets/vendor/ui-bootstrap-tpls-0.10.0.min.js"></script>
-<script src="/assets/app/app.js"></script>
-<script src="/assets/app/menu/menu-controller.js"></script>
-<script src="/assets/app/marvel/marvel.js"></script>
-<script src="/assets/app/marvel/marvel-controller.js"></script>
-<script src="/assets/app/marvel/marvel-directive.js"></script>
-<script src="/assets/app/marvel/marvel-service.js"></script>
-<script src="/assets/app/marvel/detail/detail-controller.js"></script>
-<script src="/assets/app/chat/chat-controller.js"></script>
 </body>
 </html>
-
-
-
-
-
-
