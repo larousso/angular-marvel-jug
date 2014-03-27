@@ -3,9 +3,7 @@ package controllers
 import play.api.mvc._
 import ws.marvel.MarvelApi
 import scala.concurrent.ExecutionContext.Implicits.global
-import play.api.libs.json.{JsValue, Json}
-import models.UserJsonFormats._
-import models.User
+import play.api.libs.json.JsValue
 import play.api.libs.iteratee.{Enumeratee, Concurrent}
 import play.api.libs.EventSource
 import play.api.Logger
@@ -51,38 +49,4 @@ object Application extends Controller {
       }
   }
 
-  def createUser = Action.async {
-    implicit request =>
-      val form = userForm.bindFromRequest()
-      if (form.hasErrors) {
-        scala.concurrent.Future {
-          BadRequest(form.errorsAsJson)
-        }
-      } else {
-        val u = form.get
-        u.save().map(lastError => Ok(Json.toJson(u)))
-      }
-  }
-
-  def setBestSuperHero() {
-
-  }
-
-  def addFavorite(idUser: String) = Action.async {
-    implicit request =>
-      favoriteForm.bindFromRequest.fold(
-        formWithErrors => {
-          scala.concurrent.Future {
-            BadRequest(formWithErrors.errorsAsJson)
-          }
-        }, fav => {
-          User.find(idUser).flatMap {
-            case Some(u) => u.addFavorite(fav).update().map(u => Ok(Json.toJson(u)))
-            case None => scala.concurrent.Future {
-              Ok
-            }
-          }
-        }
-      )
-  }
 }
