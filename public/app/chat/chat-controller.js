@@ -12,7 +12,9 @@ angular.module('marvelapp.chat', []).controller('ChatCtrl', ['$http', '$scope', 
 
     var source = new EventSource("/chat/feeds");
     source.addEventListener("message", function(event){
-        $scope.$apply(chat.messages.push(JSON.parse(event.data)));
+        $scope.$apply(function(){
+            chat.messages.push(JSON.parse(event.data)));
+        });
     });
 
 }]);
