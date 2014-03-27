@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+<script type="text/javascript">
+
+
+
+var obj = document.getElementById("id");
+var obj = document.getElementsByClassName('rouge');
+
+
+$(this).parents("ul").find(".faq_content").css('display', 'none').end().find("a").removeClass("open");
+$(this).addClass("open").parent().next(".faq_content").css('display', 'block');
+
+
+tag = '<object type="application/x-shockwave-flash" data="' + pathTitreFlash
+            + 'titre.swf?titre2=' + texte + '&amp;colorTXT=' + couleurTexte
+            + '&amp;colorBG=' + couleurfondtexte
+            + '" width="450" height="50"><param name="movie" value="' + pathTitreFlash
+            + 'titre.swf?titre2=' + texte + '&amp;colorTXT=' + couleurTexte
+            + '&amp;colorBG=' + couleurfondtexte
+            + '" /><param name="wmode" value="transparent" /></object>';
+titre.html(tag);
+
+
+
+</script>
+
+
+<script id="templateEnfants" type="text/html">
+    {{#enfants}}
+    <div class="ligneEnfant" id="enfant{{index}}" >
+        <p class="field">
+            <input id="enfants{{index}}.nom" name="enfants[{{index}}].nom" value="{{nom}}" type="hidden" />
+            <label for="prenom1">Pr&eacute;nom *</label>
+            <input type="text" id="enfants{{index}}.prenom" name="enfants[{{index}}].prenom" value="{{prenom}}" />
+            <select id="enfants{{index}}.sexe" name="enfants[{{index}}].sexe" value="{{sexe}}" class="selectSexe">
+                <option value="H" >Homme</option>
+                <option value="F" >Femme</option>
+            </select>
+            <label for="jDnnChamp">Date de naissance </label>
+            <input type="text" id="enfants{{index}}.dateNaissanceJour" name="enfants[{{index}}].dateNaissanceJour" value="{{dateNaissanceJour}}" class="jDnn" placeholder="JJ"/>
+            <input type="text" id="enfants{{index}}.dateNaissanceMois" name="enfants[{{index}}].dateNaissanceMois" value="{{dateNaissanceMois}}" class="mDnn" placeholder="MM"/>
+            <input type="text" id="enfants{{index}}.dateNaissanceAnnee" name="enfants[{{index}}].dateNaissanceAnnee" value="{{dateNaissanceAnnee}}" class="aDnn" placeholder="AAAA"/>
+            <a class="deletePicto" title="Supprimer cette ligne" href="javascript:client.supprimerEnfant({{index}});">Supprimer</a>
+        </p>
+    </div>
+    {{/enfants}}
+</script>
+
+
+<script type="text/javascript">
+    $.Mustache.addFromDom('templateEnfants');
+
+    var modele = {enfants:enfants};
+    $('#htmlAjoutEnfant').mustache('templateEnfants', modele, {
+        method : 'before'
+    });
+
+
+    var variableGlobale = ...
+    (function() {
+        var variablePrivee = 'Ma variable privée';
+
+        variableGlobale2 = {
+          name : 'object visible en dehors de la closure'
+        };
+
+    })
+
+    var uneClasse = funtion(){
+        this.variablePublic = ...
+
+        var variablePrive =
+
+        this.functionPublique = function(){
+            fonctionPrive();
+        };
+
+        function fonctionPrive() {
+
+        }
+    }
+
+    uneClasse.fonctionPublique();
+
+</script>
+
+</html>
