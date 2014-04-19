@@ -4,6 +4,7 @@
 var obj = document.getElementById("id");
 var obj = document.getElementsByClassName('rouge');
 
+
 //Selecteur jquery
 $(this).parents("ul").find(".faq_content").css('display', 'none').end().find("a").removeClass("open");
 $(this).addClass("open").parent().next(".faq_content").css('display', 'block');
@@ -12,7 +13,8 @@ $(this).addClass("open").parent().next(".faq_content").css('display', 'block');
 //Listener :
 $('#element>ul>li').click(function() {
     alert($(this).val());
-})
+});
+
 //Sur le code entier de la page :
 $(document).on('click', function(){
   alert( $( this ).text() );
@@ -29,6 +31,10 @@ $("#bouton").on('click', function(){
     })
 });
 
+
+////////////////////////////////////////////////////////////////////////////
+//////////////////////////  TEMPLATING  ////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 
 //Générer du code HTML :
 tag = '<object type="application/x-shockwave-flash" data="' + pathTitreFlash
@@ -49,6 +55,11 @@ var modele = {enfants:enfants};
 $('#htmlAjoutEnfant').mustache('templateEnfants', modele, {
     method : 'before'
 });
+
+
+////////////////////////////////////////////////////////////////////////////
+/////////////////////  DEPENDANCE ET VISIBILITE  ///////////////////////////
+////////////////////////////////////////////////////////////////////////////
 
 
 //Visibilité, Isoler le code
@@ -77,4 +88,3 @@ var uneClasse = function(){
 }
 uneClasse.fonctionPublique();
 
-//Injection de dépendances : requirejs
