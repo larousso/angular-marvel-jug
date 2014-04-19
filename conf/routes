@@ -6,6 +6,7 @@
 GET     /                           controllers.Application.index
 
 GET /marvel/*path                   controllers.Application.marvel(path:String)
+GET /marvelfallback                   controllers.Application.marvelFallBack()
 
 POST /chat                          controllers.Application.postMessage
 
