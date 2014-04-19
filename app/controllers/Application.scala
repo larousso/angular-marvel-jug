@@ -4,9 +4,11 @@ import play.api.mvc._
 import ws.marvel.MarvelApi
 import scala.concurrent.ExecutionContext.Implicits.global
 import play.api.libs.json.JsValue
-import play.api.libs.iteratee.{Enumeratee, Concurrent}
+import play.api.libs.iteratee.{Enumerator, Enumeratee, Concurrent}
 import play.api.libs.EventSource
-import play.api.Logger
+import play.api.{Play, Logger}
+import play.api.Play.current
+import java.io.File
 
 
 object Application extends Controller {
@@ -47,6 +49,16 @@ object Application extends Controller {
           .get()
           .map(r => Ok(r.body))
       }
+  }
+
+  def marvelFallBack() = Action {
+    implicit request =>
+      val file: File = Play.getFile("public/marvel.json")
+      val fileContent: Enumerator[Array[Byte]] = Enumerator.fromFile(file)
+      SimpleResult(
+        header = ResponseHeader(200, Map(CONTENT_LENGTH -> file.length.toString)),
+        body = fileContent
+      ).as("application/json")
   }
 
 }
